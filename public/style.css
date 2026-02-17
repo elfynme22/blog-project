@@ -1,0 +1,366 @@
+/* ========== GHIBLI GARDEN THEME ========== */
+:root{
+  --bg-1:#cfeeff;      /* soft sky */
+  --bg-2:#f8fff2;      /* light haze */
+  --ink:#22313a;       /* readable ink */
+  --muted:rgba(34,49,58,.70);
+
+  --card:#ffffffcc;    /* glassy paper */
+  --line:rgba(34,49,58,.12);
+
+  --leaf:#3f7f5c;      /* meadow */
+  --leaf-2:#86c08e;
+  --sun:#ffd58a;       /* warm sun */
+  --flower:#ff7aa2;    /* pink bloom */
+  --flower2:#7aa7ff;   /* blue bloom */
+
+  --shadow: 0 18px 45px rgba(20,40,30,.18);
+  --r: 18px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* dreamy sky + meadow light */
+  background:
+    radial-gradient(900px 600px at 20% -10%, rgba(122,167,255,.55), transparent 55%),
+    radial-gradient(700px 500px at 75% 10%, rgba(255,213,138,.55), transparent 55%),
+    radial-gradient(900px 650px at 30% 110%, rgba(134,192,142,.55), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 55%, #e9ffe9 100%);
+}
+
+/* subtle floating “petals / clouds” */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events:none;
+  background:
+    radial-gradient(14px 14px at 18% 30%, rgba(255,122,162,.25), transparent 60%),
+    radial-gradient(18px 18px at 82% 26%, rgba(122,167,255,.22), transparent 65%),
+    radial-gradient(22px 22px at 62% 62%, rgba(255,213,138,.18), transparent 70%),
+    radial-gradient(28px 28px at 26% 76%, rgba(134,192,142,.22), transparent 70%);
+  filter: blur(0.2px);
+  opacity: .8;
+}
+
+.container{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 22px 0;
+}
+
+/* Header as “sky band” */
+.topbar{
+  .topbar{
+  box-shadow: 0 10px 30px rgba(20,40,30,.12);
+}
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background:
+    radial-gradient(900px 240px at 30% 0%, rgba(255,255,255,.85), rgba(255,255,255,.55) 55%, rgba(255,255,255,.35)),
+    linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.35));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(34,49,58,.10);
+}
+
+.logo{
+  margin:0;
+  font-size: 30px;
+  letter-spacing: .2px;
+}
+
+.subtitle{
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Cards as warm paper */
+.card{
+  background: var(--card);
+  border: 1px solid rgba(34,49,58,.10);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  margin: 18px 0;
+}
+
+/* section titles */
+h2{
+  margin: 0 0 12px 0;
+  font-size: 20px;
+}
+
+/* Form */
+.form{
+  display:grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+label{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input, textarea{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(34,49,58,.16);
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+  outline: none;
+}
+
+input:focus, textarea:focus{
+  border-color: rgba(63,127,92,.45);
+  box-shadow: 0 0 0 4px rgba(134,192,142,.20);
+}
+
+/* Posts header */
+.posts{ margin-top: 20px; }
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pill{
+  font-size: 12px;
+  color: rgba(34,49,58,.78);
+  border: 1px solid rgba(34,49,58,.14);
+  background: rgba(255,255,255,.55);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* Post cards */
+.post-card{
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(34,49,58,.10);
+  border-radius: var(--r);
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 10px 26px rgba(20,40,30,.10);
+}
+
+.post-meta{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.post-meta h3{
+  margin:0;
+  font-size: 18px;
+}
+
+.post-meta small{
+  color: rgba(34,49,58,.62);
+}
+
+.post-preview{
+  margin: 10px 0 0;
+  color: rgba(34,49,58,.72);
+  line-height: 1.55;
+}
+
+/* Buttons */
+.actions{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.inline{ display:inline; }
+
+.btn{
+  border: 1px solid rgba(34,49,58,.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.60);
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(20,40,30,.10);
+}
+
+/* Pastel variants */
+.btn-primary{
+  border-color: rgba(63,127,92,.28);
+  background: linear-gradient(180deg, rgba(134,192,142,.55), rgba(134,192,142,.30));
+}
+.btn-secondary{
+  border-color: rgba(122,167,255,.30);
+  background: linear-gradient(180deg, rgba(122,167,255,.55), rgba(122,167,255,.28));
+}
+.btn-danger{
+  border-color: rgba(255,122,162,.34);
+  background: linear-gradient(180deg, rgba(255,122,162,.42), rgba(255,122,162,.22));
+}
+
+/* Empty state */
+.empty{
+  border: 1px dashed rgba(34,49,58,.25);
+  border-radius: var(--r);
+  padding: 16px;
+  color: rgba(34,49,58,.70);
+  background: rgba(255,255,255,.55);
+}
+
+/* Footer */
+.footer{
+  border-top: 1px solid rgba(34,49,58,.12);
+  margin-top: 28px;
+  color: rgba(34,49,58,.70);
+  padding: 10px 0 26px;
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .logo{ font-size: 24px; }
+  .post-meta{ flex-direction:column; align-items:flex-start; }
+}
+
+/* ---- GHIBLI EXTRA: PETALS + PAPER + CUTE ---- */
+
+/* soft petals layer */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  background:
+    radial-gradient(10px 10px at 20% 35%, rgba(255,122,162,.35), transparent 65%),
+    radial-gradient(12px 12px at 82% 30%, rgba(122,167,255,.30), transparent 70%),
+    radial-gradient(14px 14px at 60% 68%, rgba(255,213,138,.26), transparent 70%),
+    radial-gradient(16px 16px at 28% 78%, rgba(134,192,142,.28), transparent 70%),
+    radial-gradient(10px 10px at 70% 85%, rgba(255,122,162,.20), transparent 65%);
+  filter: blur(0.4px);
+}
+
+/* paper texture effect for cards */
+.card, .post-card{
+  position: relative;
+  overflow: hidden;
+}
+.card::before, .post-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.10;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.06),
+      rgba(0,0,0,.06) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  mix-blend-mode: multiply;
+}
+
+/* rounder + softer spacing */
+.card{ padding: 22px; }
+.post-card{ padding: 18px; }
+
+/* cute buttons */
+.btn{
+  border-radius: 999px;            /* pill */
+  padding: 10px 16px;
+}
+.btn-primary{
+  background: linear-gradient(180deg, rgba(134,192,142,.70), rgba(134,192,142,.34));
+}
+.btn-secondary{
+  background: linear-gradient(180deg, rgba(122,167,255,.68), rgba(122,167,255,.28));
+}
+.btn-danger{
+  background: linear-gradient(180deg, rgba(255,122,162,.55), rgba(255,122,162,.22));
+}
+
+/* ---- GHIBLI EXTRA: PETALS + PAPER + CUTE ---- */
+
+/* soft petals layer */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  background:
+    radial-gradient(10px 10px at 20% 35%, rgba(255,122,162,.35), transparent 65%),
+    radial-gradient(12px 12px at 82% 30%, rgba(122,167,255,.30), transparent 70%),
+    radial-gradient(14px 14px at 60% 68%, rgba(255,213,138,.26), transparent 70%),
+    radial-gradient(16px 16px at 28% 78%, rgba(134,192,142,.28), transparent 70%),
+    radial-gradient(10px 10px at 70% 85%, rgba(255,122,162,.20), transparent 65%);
+  filter: blur(0.4px);
+}
+
+/* paper texture effect for cards */
+.card, .post-card{
+  position: relative;
+  overflow: hidden;
+}
+.card::before, .post-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.10;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.06),
+      rgba(0,0,0,.06) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  mix-blend-mode: multiply;
+}
+
+/* rounder + softer spacing */
+.card{ padding: 22px; }
+.post-card{ padding: 18px; }
+
+/* cute buttons */
+.btn{
+  border-radius: 999px;            /* pill */
+  padding: 10px 16px;
+}
+.btn-primary{
+  background: linear-gradient(180deg, rgba(134,192,142,.70), rgba(134,192,142,.34));
+}
+.btn-secondary{
+  background: linear-gradient(180deg, rgba(122,167,255,.68), rgba(122,167,255,.28));
+}
+.btn-danger{
+  background: linear-gradient(180deg, rgba(255,122,162,.55), rgba(255,122,162,.22));
+}
+
+/* make Publish button not too tall */
+.form button{ justify-self: start; }

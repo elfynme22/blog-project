@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Blog</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="logo">My Blog</h1>
+      <p class="subtitle">Create, edit, and share your thoughts (no DB, session-only)</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Create a new post</h2>
+      <form class="form" action="/posts" method="POST">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Give it a nice title..." required />
+
+        <label>Content</label>
+        <textarea name="content" rows="6" placeholder="Write something..." required></textarea>
+
+        <button class="btn btn-primary" type="submit">🌿 Publish</button>
+
+      </form>
+    </section>
+
+    <section class="posts">
+      <div class="section-head">
+        <h2>All Posts</h2>
+        <span class="pill"><%= posts.length %> post</span>
+      </div>
+
+      <% if (posts.length === 0) { %>
+        <div class="empty">
+          <p>No posts yet. Create your first one above ✨</p>
+        </div>
+      <% } %>
+
+      <% posts.forEach(post => { %>
+        <article class="post-card">
+          <div class="post-meta">
+            <h3><%= post.title %></h3>
+            <small><%= post.createdAt %></small>
+          </div>
+
+          <p class="post-preview">
+            <%= post.content.length > 180 ? post.content.slice(0, 180) + "..." : post.content %>
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-secondary" href="/posts/<%= post.id %>/edit">Edit</a>
+
+            <form action="/posts/<%= post.id %>/delete" method="POST" class="inline">
+              <button class="btn btn-danger" type="submit"
+                onclick="return confirm('Delete this post?');">
+                Delete
+              </button>
+            </form>
+          </div>
+        </article>
+      <% }) %>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built with Node.js + Express + EJS • In-memory posts</p>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
+
+</body>
+</html>

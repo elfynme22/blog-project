@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container">
+        <h1 class="logo"><%= post.title %></h1>
+        <p class="subtitle"><%= post.createdAt %></p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="post-full card">
+        <p class="post-content"><%= post.content %></p>
+
+        <div class="actions">
+          <a class="btn btn-secondary" href="/posts/<%= post.id %>/edit"
+            >Edit</a
+          >
+          <form
+            action="/posts/<%= post.id %>/delete"
+            method="POST"
+            class="inline"
+          >
+            <button
+              class="btn btn-danger"
+              type="submit"
+              onclick="return confirm('Delete this post?');"
+            >
+              Delete
+            </button>
+          </form>
+          <a class="btn btn-ghost" href="/">Back</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

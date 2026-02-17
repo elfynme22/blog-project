@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container">
+        <h1 class="logo">Edit Post</h1>
+        <p class="subtitle">Update your post and save changes</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <form class="form" action="/posts/<%= post.id %>/update" method="POST">
+          <label>Title</label>
+          <input type="text" name="title" value="<%= post.title %>" required />
+
+          <label>Content</label>
+          <textarea name="content" rows="8" required>
+<%= post.content %></textarea
+          >
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a class="btn btn-ghost" href="/">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
