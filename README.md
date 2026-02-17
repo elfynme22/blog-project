@@ -15,3 +15,5 @@ A simple blog app where users can create, edit, view, and delete posts.
 ```bash
 npm install
 node app.js
+```
+Open in your browser: http://localhost:3000
